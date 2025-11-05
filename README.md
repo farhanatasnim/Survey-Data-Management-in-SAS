@@ -1,7 +1,5 @@
 # Survey-Data-Management-in-SAS
 
-# EPI 600: Final Project - Survey Data Management in SAS
-
 ## Project Overview
 
 This repository contains the final project for EPI 600, demonstrating data management and cleaning tasks using SAS. The primary goal of this project was to take raw, separate survey data files, process them, and create a single, clean, analysis-ready dataset.
