@@ -1,0 +1,1364 @@
+NOTE: Copyright (c) 2023 by SAS Institute Inc., Cary, NC, USA.
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M8)
+      Licensed to UNIVERSITY OF MASSACHUSETTS  - SFA T&R, Site 70084291.
+NOTE: This session is executing on the X64_WIN+HOME  platform.
+
+
+
+NOTE: Analytical products:
+
+      SAS/STAT 15.3
+      SAS/ETS 15.3
+      SAS/OR 15.3
+      SAS/IML 15.3
+      SAS/QC 15.3
+
+NOTE: Additional host information:
+
+ X64_WIN+HOME WIN 10.0.22631  Workstation
+
+NOTE: SAS initialization used:
+      real time           3.11 seconds
+      cpu time            0.20 seconds
+
+1
+2    ******************************************************************
+3    *****************EPI_600_FINAL_PROJECT****************************;
+4
+5    libname epiquiz "C:\Users\farha\OneDrive\Desktop\Epi_quiz_600";
+NOTE: Libref EPIQUIZ was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\farha\OneDrive\Desktop\Epi_quiz_600
+6
+7    **********UPLOADING ALL THE DATASETS*********************;
+8
+9    data recode;
+10   set epiquiz.quiz_recode;
+11   run;
+
+NOTE: There were 4529 observations read from the data set EPIQUIZ.QUIZ_RECODE.
+NOTE: The data set WORK.RECODE has 4529 observations and 84 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+12
+13   proc contents data=recode; run;
+NOTE: Writing HTML Body file: sashtml.htm
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.31 seconds
+      cpu time            0.06 seconds
+
+
+14
+15   *  DAtA SET NAME: RECODE                                Observations: 4529
+16        Member Type: DATA                                  Variables: 84;
+17
+18
+19   proc import
+20   out = quiz_survey_p1
+21   datafile = "C:\Users\farha\OneDrive\Desktop\Epi_quiz_600\quiz_survey_3_p1.csv"
+22   dbms = csv replace;
+22 !                     run;
+
+23    /**********************************************************************
+24    *   PRODUCT:   SAS
+25    *   VERSION:   9.4
+26    *   CREATOR:   External File Interface
+27    *   DATE:      11DEC24
+28    *   DESC:      Generated SAS Datastep Code
+29    *   TEMPLATE SOURCE:  (None Specified.)
+30    ***********************************************************************/
+31       data WORK.QUIZ_SURVEY_P1    ;
+32       %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+33       infile 'C:\Users\farha\OneDrive\Desktop\Epi_quiz_600\quiz_survey_3_p1.csv' delimiter = ','
+33 ! MISSOVER DSD lrecl=32767 firstobs=2 ;
+34          informat id best32. ;
+35          informat q15a best32. ;
+36          informat q15b best32. ;
+37          informat q16 best32. ;
+38          informat q17 best32. ;
+39          informat q18 best32. ;
+40          informat q19a best32. ;
+41          informat q19b best32. ;
+42          informat q19c best32. ;
+43          informat q19d best32. ;
+44          informat q20 best32. ;
+45          informat q21 best32. ;
+46          informat q22a best32. ;
+47          informat q22b best32. ;
+48          informat q22c best32. ;
+49          informat q22d best32. ;
+50          informat q22e best32. ;
+51          informat q22f best32. ;
+52          informat q22g best32. ;
+53          informat q22h best32. ;
+54          informat q22i best32. ;
+55          informat q22j best32. ;
+56          informat q23 best32. ;
+57          informat q24 best32. ;
+58          informat q25 best32. ;
+59          informat q26 best32. ;
+60          format id best12. ;
+61          format q15a best12. ;
+62          format q15b best12. ;
+63          format q16 best12. ;
+64          format q17 best12. ;
+65          format q18 best12. ;
+66          format q19a best12. ;
+67          format q19b best12. ;
+68          format q19c best12. ;
+69          format q19d best12. ;
+70          format q20 best12. ;
+71          format q21 best12. ;
+72          format q22a best12. ;
+73          format q22b best12. ;
+74          format q22c best12. ;
+75          format q22d best12. ;
+76          format q22e best12. ;
+77          format q22f best12. ;
+78          format q22g best12. ;
+79          format q22h best12. ;
+80          format q22i best12. ;
+81          format q22j best12. ;
+82          format q23 best12. ;
+83          format q24 best12. ;
+84          format q25 best12. ;
+85          format q26 best12. ;
+86       input
+87                   id
+88                   q15a
+89                   q15b
+90                   q16
+91                   q17
+92                   q18
+93                   q19a
+94                   q19b
+95                   q19c
+96                   q19d
+97                   q20
+98                   q21
+99                   q22a
+100                  q22b
+101                  q22c
+102                  q22d
+103                  q22e
+104                  q22f
+105                  q22g
+106                  q22h
+107                  q22i
+108                  q22j
+109                  q23
+110                  q24
+111                  q25
+112                  q26
+113      ;
+114      if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+115      run;
+
+NOTE: The infile 'C:\Users\farha\OneDrive\Desktop\Epi_quiz_600\quiz_survey_3_p1.csv' is:
+      Filename=C:\Users\farha\OneDrive\Desktop\Epi_quiz_600\quiz_survey_3_p1.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=310210,
+      Last Modified=18Nov2024:09:56:31,
+      Create Time=18Nov2024:09:56:31
+
+NOTE: 3654 records were read from the infile
+      'C:\Users\farha\OneDrive\Desktop\Epi_quiz_600\quiz_survey_3_p1.csv'.
+      The minimum record length was 72.
+      The maximum record length was 88.
+NOTE: The data set WORK.QUIZ_SURVEY_P1 has 3654 observations and 26 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.00 seconds
+
+
+3654 rows created in WORK.QUIZ_SURVEY_P1 from
+C:\Users\farha\OneDrive\Desktop\Epi_quiz_600\quiz_survey_3_p1.csv.
+
+
+
+NOTE: WORK.QUIZ_SURVEY_P1 data set was successfully created.
+NOTE: The data set WORK.QUIZ_SURVEY_P1 has 3654 observations and 26 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.16 seconds
+      cpu time            0.01 seconds
+
+
+116
+117  proc contents data=quiz_survey_p1; run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+118
+119  * DAtA SET NAME: QUIZ_SURVEY_P1                          Observations: 3654
+120    Member Type: DATA                                      Variables: 26;
+121
+122
+123  proc import
+124  out = quiz_survey_p2
+125  datafile = "C:\Users\farha\OneDrive\Desktop\Epi_quiz_600\quiz_survey_3_p2.xlsx"
+126  dbms = xlsx replace;
+126!                      run;
+
+NOTE: The import data set has 875 observations and 16 variables.
+NOTE: WORK.QUIZ_SURVEY_P2 data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.03 seconds
+
+
+127
+128  proc contents data=quiz_survey_p2; run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+
+
+129
+130  * DAtA SET NAME: QUIZ_SURVEY_P2                           Observations: 875
+131      Member Type: DATA                                     Variables: 16;
+132
+133
+134  proc import
+135  out = quiz_survey_p3
+136  datafile = "C:\Users\farha\OneDrive\Desktop\Epi_quiz_600\quiz_survey_3_p3.xlsx"
+137  dbms = xlsx replace;
+137!                      run;
+
+NOTE: The import data set has 875 observations and 11 variables.
+NOTE: WORK.QUIZ_SURVEY_P3 data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+
+
+138
+139  proc contents data=quiz_survey_p3; run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+140
+141  * DAtA SET NAME: QUIZ_SURVEY_P1                            Observations: 875
+142      Member Type: DATA                                      Variables: 11;
+143
+144
+145  ***************************************************************
+146  *********SORTING AND MERGING ALL 4 DATASETS TO CREATE FINAL_DATA
+147  ***************************************************************;
+148
+149  proc sort data= recode; by id; run;
+
+NOTE: There were 4529 observations read from the data set WORK.RECODE.
+NOTE: The data set WORK.RECODE has 4529 observations and 84 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+
+
+150
+151  proc sort data= quiz_survey_p1; by id; run;
+
+NOTE: There were 3654 observations read from the data set WORK.QUIZ_SURVEY_P1.
+NOTE: The data set WORK.QUIZ_SURVEY_P1 has 3654 observations and 26 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+152
+153  proc sort data= quiz_survey_p2; by id; run;
+
+NOTE: There were 875 observations read from the data set WORK.QUIZ_SURVEY_P2.
+NOTE: The data set WORK.QUIZ_SURVEY_P2 has 875 observations and 16 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+154
+155  proc sort data= quiz_survey_p3; by id; run;
+
+NOTE: There were 875 observations read from the data set WORK.QUIZ_SURVEY_P3.
+NOTE: The data set WORK.QUIZ_SURVEY_P3 has 875 observations and 11 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+
+
+156
+157  data epiquiz.final_data;
+158  merge recode quiz_survey_p1 quiz_survey_p2 quiz_survey_p3;
+159  by id;
+160  run;
+
+NOTE: There were 4529 observations read from the data set WORK.RECODE.
+NOTE: There were 3654 observations read from the data set WORK.QUIZ_SURVEY_P1.
+NOTE: There were 875 observations read from the data set WORK.QUIZ_SURVEY_P2.
+NOTE: There were 875 observations read from the data set WORK.QUIZ_SURVEY_P3.
+NOTE: The data set EPIQUIZ.FINAL_DATA has 4529 observations and 109 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+161
+162  ******** DATASET NAME: FINAL DATA   OBSERVATION: 4529 ***************
+163                                       VARIABLES: 109
+164  ********************************************************************;
+165
+166  ***********************************************************************
+167  RECODING VARIABLES FOR QUIZ SURVEY #3 FOR MISSING DATA, AS APPROPRIATE.
+168  THIS INCLUDE RESPONSES SUCH AS 'don’t know' AND ‘not applicable’
+169  ************************************************************************;
+170  proc print data=epiquiz.final_data(obs=15); run;
+
+NOTE: There were 15 observations read from the data set EPIQUIZ.FINAL_DATA.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+
+
+171
+172  proc freq data=epiquiz.final_data;
+173  table q15a q15b; run;
+
+NOTE: There were 4529 observations read from the data set EPIQUIZ.FINAL_DATA.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+174
+175  * RECODING q15a AS edu_male and q15b AS edu_female;
+176
+177  data final_recode;
+178  set epiquiz.final_data;
+179  if q15a = 1 then edu_male = 1;
+180  if q15a = 2 then edu_male = 2;
+181  if q15a = 3 then edu_male = 3;
+182  if q15a = 4 then edu_male = 4;
+183  if q15a = 5 then edu_male = 5;
+184  if q15a = 6 then edu_male = 6;
+185  if q15a = 7 then edu_male = 7;
+186  if q15a = 8 then edu_male = .;
+187  if q15a = . then edu_male = .;
+188
+189  if q15b = 1 then edu_female = 1;
+190  if q15b = 2 then edu_female = 2;
+191  if q15b = 3 then edu_female = 3;
+192  if q15b = 4 then edu_female = 4;
+193  if q15b = 5 then edu_female = 5;
+194  if q15b = 6 then edu_female = 6;
+195  if q15b = 7 then edu_female = 7;
+196  if q15b = 8 then edu_female = .;
+197  if q15b = . then edu_female = .;
+198  run;
+
+NOTE: There were 4529 observations read from the data set EPIQUIZ.FINAL_DATA.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 111 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+199
+200  * CHECKING THE RECODED VARIABLES;
+201
+202  proc freq data=final_recode;
+203  table q15a*edu_male q15b*edu_female/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+
+
+204
+205  *CHECKING VARIABLE q19a--q19d;
+206
+207  proc freq data=final_recode;
+208  table q19a--q19d/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+209
+210  *********************************
+211  RECODING VARIABLE q19a--q19d
+212  q19a: AS smoke_tobac
+213  q19b: AS smokeles_tobac
+214  q19c: AS alcohol
+215  q19d: AS marijuana
+216  *******************************;
+217
+218  data final_recode;
+219   set final_recode;
+220  if q19a=1 then smoke_tobac=0;
+221  if q19a=2 then smoke_tobac=1;
+222  if q19a=3 then smoke_tobac=2;
+223  if q19a=4 then smoke_tobac=3;
+224  if q19a=5 then smoke_tobac=4;
+225  if q19a=6 then smoke_tobac=5;
+226  if q19a=7 then smoke_tobac=6;
+227  if q19a=9 then smoke_tobac=.;
+228  if q19a=. then smoke_tobac=.;
+229
+230  if q19b=1 then smokeles_tobac=0;
+231  if q19b=2 then smokeles_tobac=1;
+232  if q19b=3 then smokeles_tobac=2;
+233  if q19b=4 then smokeles_tobac=3;
+234  if q19b=5 then smokeles_tobac=4;
+235  if q19b=6 then smokeles_tobac=5;
+236  if q19b=7 then smokeles_tobac=6;
+237  if q19b=. then smokeles_tobac=.;
+238
+239  if q19c=1 then alcohol=0;
+240  if q19c=2 then alcohol=1;
+241  if q19c=3 then alcohol=2;
+242  if q19c=4 then alcohol=3;
+243  if q19c=5 then alcohol=4;
+244  if q19c=6 then alcohol=5;
+245  if q19c=7 then alcohol=6;
+246  if q19c=. then alcohol=.;
+247
+248  if q19d=1 then marijuana=0;
+249  if q19d=2 then marijuana=1;
+250  if q19d=3 then marijuana=2;
+251  if q19d=4 then marijuana=3;
+252  if q19d=5 then marijuana=4;
+253  if q19d=6 then marijuana=5;
+254  if q19d=7 then marijuana=6;
+255  if q19d=. then marijuana=.;
+256  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 115 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+257
+258  *CHECKING THE RECODED VARIABLES;
+259
+260  proc freq data=final_recode;
+261  table q19a*smoke_tobac q19b*smokeles_tobac q19c*alcohol q19d*marijuana/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.03 seconds
+
+
+262
+263  proc freq data=final_recode;
+264  table q21/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+265
+266  *CHECKING VARIABLE q22a--q22j;
+267
+268  proc freq data=final_recode;
+269  table q22a--q22j/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.00 seconds
+
+
+270
+271  * RECODING THE VARIABLE q22a--q22j;
+272
+273  data final_recode;
+274  set final_recode;
+275
+276  no_tobac = 0;
+277  if q22a=1 then no_tobac=1;
+278  if (q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+279  & q22h=9999 & q22i=9999 & q22j=9999) then no_tobac=.;
+280  if (q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+281  & q22h=. & q22i=. & q22j=.) then no_tobac=.;
+282
+283  cam_tobac = 0;
+284  if q22b=1  then cam_tobac=1;
+285  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+286  & q22h=9999 & q22i=9999 & q22j=9999 then cam_tobac=.;
+287  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+288  & q22h=. & q22i=.& q22j=. then cam_tobac=.;
+289
+290  res_tobac = 0;
+291  if q22c=1 then res_tobac=1;
+292  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+293  & q22h=9999 & q22i=9999 & q22j=9999 then res_tobac=.;
+294  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+295  & q22h=. & q22i=.& q22j=. then res_tobac=.;
+296
+297
+298  fra_tobac = 0;
+299  if q22d=1 then fra_tobac=1;
+300  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+301  & q22h=9999 & q22i=9999 & q22j=9999 then fra_tobac=.;
+302  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+303  & q22h=. & q22i=. & q22j=. then fra_tobac=.;
+304
+305
+306  bar_tobac = 0;
+307  if q22e=1 then bar_tobac=1;
+308  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+309  & q22h=9999 & q22i=9999 & q22j=9999 then bar_tobac=.;
+310  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+311  & q22h=. & q22i=. & q22j=. then bar_tobac=.;
+312
+313
+314  car_tobac = 0;
+315  if q22f=1 then car_tobac=1;
+316  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+317  & q22h=9999 & q22i=9999 & q22j=9999 then car_tobac=.;
+318  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+319  & q22h=. & q22i=. & q22j=. then car_tobac=.;
+320
+321
+322  live_tobac = 0;
+323  if q22g=1 then live_tobac=1;
+324  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+325  & q22h=9999 & q22i=9999 & q22j=9999 then live_tobac=.;
+326  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+327  & q22h=. & q22i=. & q22j=. then live_tobac=.;
+328
+329  party_tobac = 0;
+330  if q22h=1 then party_tobac=1;
+331  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+332  & q22h=9999 & q22i=9999 & q22j=9999 then party_tobac=.;
+333  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+334  & q22h=. & q22i=. & q22j=. then party_tobac=.;
+335
+336
+337  work_tobac = 0;
+338  if q22i=1 then work_tobac=1;
+339  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+340  & q22h=9999 & q22i=9999 & q22j=9999 then work_tobac=.;
+341  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+342  & q22h=. & q22i=. & q22j=. then work_tobac=.;
+343
+344  other_tobac = 0;
+345  if q22j=1 then other_tobac=1;
+346  if q22a=9999 & q22b=9999 & q22c=9999 & q22d=9999 & q22e=9999 & q22f=9999 & q22g=9999
+347  & q22h=9999 & q22i=9999 & q22j=9999 then other_tobac=.;
+348  if q22a=. & q22b=. & q22c=. & q22d=. & q22e=. & q22f=. & q22g=.
+349  & q22h=. & q22i=. & q22j=. then other_tobac=.;
+350
+351  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 125 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+
+
+352
+353  * CHECKING THE RECODED VARIABLE;
+354
+355  proc freq data=final_recode;
+356  table no_tobac cam_tobac res_tobac fra_tobac bar_tobac car_tobac live_tobac party_tobac
+356! work_tobac other_tobac/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.00 seconds
+
+
+357
+358
+359  *CHECKING VARIABLE Q23;
+360
+361  proc freq data=final_recode;
+362  table q23/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+363
+364  *RECODING VARIABLE Q23 AS INDICATOR VARIABLE sex_act;
+365
+366  data final_recode;
+367   set final_recode;
+368   if q23=1 then sex_act=0;
+369   if q23=2 then sex_act=1;
+370   if q23=. then sex_act=.;
+371   run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 126 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+372
+373  *CHECKING THE RECODED VARIABLE;
+374
+375  proc freq data=final_recode;
+376  table q23*sex_act/missing;
+377  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+378
+379  * CHECKING VARIABLE Q24;
+380
+381  proc freq data=final_recode;
+382  table q24/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+383
+384  *RECODING VARIABLE Q24 AS INDICATOR VARIABLE sex_act_12;
+385
+386  data final_recode;
+387  set final_recode;
+388  if q24=1 then sex_act_12=0;
+389  if q24=2 then sex_act_12=1;
+390  if q24=. then sex_act_12=.;
+391  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 127 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+
+
+392
+393  *CHECKING THE RECODED VARIABLE;
+394
+395  proc freq data=final_recode;
+396  table q24*sex_act_12/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+397
+398  * CHECKING VARIABLE Q25;
+399
+400  proc freq data=final_recode;
+401  table q25/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+402
+403  *RECODING VARIABLE Q25 AS INDICATOR VARIABLE preg_pass_12;
+404
+405  data final_recode;
+406  set final_recode;
+407  if q25=1 then preg_pass_12=.;
+408  if q25=2 then preg_pass_12=1;
+409  if q25=3 then preg_pass_12=0;
+410  if q25=4 then preg_pass_12=.;
+411  if q25=. then preg_pass_12=.;
+412  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 128 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+413
+414  *CHECKING THE RECODED VARIABLE;
+415
+416  proc freq data=final_recode;
+417  table q25*preg_pass_12/missing;
+418  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+419
+420  * CHECKING VARIABLE Q26;
+421
+422  proc freq data=final_recode;
+423  table q26/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+424
+425  * RECODING VARIABLE Q26 AS preg_outome;
+426
+427  data final_recode;
+428  set final_recode;
+429  if q26 = 1 then preg_outcome=.;
+430  if q26 = 2 then preg_outcome=2;
+431  if q26 = 3 then preg_outcome=3;
+432  if q26 = 4 then preg_outcome=4;
+433  if q26 = 5 then preg_outcome=5;
+434  if q26 = 6 then preg_outcome=6;
+435  if q26 = 7 then preg_outcome=.;
+436  if q26 = . then preg_outcome=.;
+437  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 129 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+438
+439  *CHECKING THE RECODED VARIABLE;
+440
+441  proc freq data=final_recode;
+442  table q26*preg_outcome/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.00 seconds
+
+
+443
+444  ************************************************
+445  par_college 2 = both parents completed college or more
+446  1 = one parent completed college or more
+447  0 = neither parent completed college
+448  ***************************************************;
+449
+450  data final_recode;
+451  set final_recode;
+452  par_college = 0;
+453  if (edu_male=5 | edu_male=6 | edu_male=7 | edu_female=5 | edu_female=6 | edu_female=7) then
+453! par_college=1;
+454  if (edu_male=5 | edu_male=6 |edu_male = 7)& (edu_female=5 | edu_female=6 |edu_female = 7) then
+454! par_college=2;
+455  if (edu_male=. & edu_female=.) then par_college = .;
+456  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 130 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+457
+458
+459  proc freq data = final_recode;
+460  table par_college/missing;
+461  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+462
+463  *Result :
+464
+465                                                              Cumulative    Cumulative
+466                      par_college    Frequency     Percent     Frequency      Percent
+467                      -----------------------------------------------------------
+468                           .           17           0.38          17          0.38
+469                           0          2046          45.18        2063         45.55
+470                           1           1960         43.28        4023         88.83
+471                           2            506          11.17        4529        100.00
+472
+473  ;
+474
+475  *************************************************************************************
+476  preg_current: Identify participants who are currently pregnant (HINT: think about who
+477  gets pregnant vs. who impregnates)
+478  *************************************************************************************;
+479
+480  data final_recode;
+481  set final_recode;
+482  preg_current = 0;
+483  if (preg_outcome = 6 & female=1)  then preg_current = 1;
+484  if female=0  then preg_current = .;
+485  if female=. then preg_current=.;
+486  if preg_outcome=.  then preg_current = .;
+487  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 131 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+
+
+488
+489  proc freq data=final_recode;
+490  table preg_current/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+491
+492
+493  *Result:
+494
+495
+496                                                              Cumulative      Cumulative
+497                     preg_current    Frequency     Percent    Frequency        Percent
+498                      ----------------------------------------------------------------
+499                          .            4341          95.87       4342           95.87
+500                          0             138           3.05       4480           98.92
+501                          1              50           1.08       4529           100.00
+502
+503  ;
+504
+505
+506  ***************************
+507  age_grp: 1 = 18-24 years old
+508  2 = 25-34 years old
+509  3 = 35+ years old
+510  *******************************;
+511  data final_recode;
+512  set final_recode;
+513  if 18<= q2 <25 then age_grp = 1;
+514  if 25<= q2 < 35 then age_grp = 2;
+515  if q2>=35 then age_grp = 3;
+516  if q2 = . then age_grp=.;
+517  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 132 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+518
+519  proc freq data=final_recode;
+520  table age_grp/missing;
+521  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+522
+523  *Result:
+524
+525
+526                                                         Cumulative    Cumulative
+527                     age_grp    Frequency     Percent     Frequency      Percent
+528                      -----------------------------------------------------------
+529                           1      2070         45.71         2070           45.71
+530                           2      1756         38.77         3826           84.48
+531                           3      703          15.52         4529           100.00
+532
+533  ;
+534
+535  *******************************************************************
+536  gpa_pass: Dichotomize GPA based on a passing GPA of 3.00 and higher
+537  ********************************************************************;
+538  proc freq data=final_recode;
+539  table q18/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+540
+541  data final_recode;
+542  set final_recode;
+543  gpa_pass=0;
+544  if q18>= 3 then gpa_pass=1;
+545  if q18 = . then gpa_pass=.;
+546  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 133 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+
+
+547
+548  proc freq data=final_recode;
+549  table gpa_pass/missing;
+550  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+551
+552  *Result:
+553
+554
+555                                                         Cumulative    Cumulative
+556                     gpa_pass    Frequency     Percent     Frequency      Percent
+557                      -----------------------------------------------------------
+558                           .       4            0.09          4             0.09
+559                           0      1062          23.45       1066            23.54
+560                           1      3463          76.46       4529            100.00
+561  ;
+562
+563  *****************************************************************************
+564  relationship: Collapse cells (i.e., combine response levels) such that no response level
+565  has fewer than 100 observations combine response options that are
+566  conceptually similar. Keep as many of the original response options as
+567  possible, only collapse response options that are similar to each other.
+568
+569  ***************************************************************************** ;
+570
+571  data final_recode;
+572  set final_recode;
+573  if q17= 1 then relationship=1;
+574  if q17=2 then relationship=2;
+575  if q17=3 then relationship=3; *Separated, widowed and divorced collapsing together;
+576  if q17=4 then relationship=3; *Separated, widowed and divorced collapsing together;
+577  if q17=5 then relationship=3; *Separated, widowed and divorced collapsing together;
+578  if q17=6 then relationship=4;
+579  if q17 =. then relationship=.;
+580  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 134 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+
+
+581
+582  proc freq data = final_recode;
+583  table relationship/missing;
+584  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+585
+586  *Result:
+587
+588
+589                                                              Cumulative    Cumulative
+590                     relationship    Frequency     Percent     Frequency      Percent
+591                      -----------------------------------------------------------
+592                           .           23           0.51          23          0.51
+593                           1          1764          38.95        1787         39.46
+594                           2          942           20.80        2729         60.26
+595                           3          137            3.02        2866         63.28
+596                           4          1663          36.72        4529         100.00
+597
+598  ;
+599
+600  *****************************************************************************
+601  heavy_drink: Identifies participants who reported alcohol consumption that meets
+602  CDC definition of heavy drinking (8 or more drinks per week for women
+603  and 15 or more drinks per week for men)
+604  *************************************************************;
+605
+606  data final_recode;
+607  set final_recode;
+608  heavy_drink = 0;
+609  if (q20>=15 & female=0) then heavy_drink = 1;
+610  if (q20>=8 & female=1) then heavy_drink = 1;
+611  if (q20 = . | female = .) then heavy_drink = .;
+612  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 135 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+613
+614
+615  proc freq data=final_recode;
+616  table heavy_drink/missing;
+617  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+618
+619  *Result:
+620
+621
+622                                                             Cumulative    Cumulative
+623                     heavy_drink    Frequency     Percent     Frequency      Percent
+624                      -----------------------------------------------------------
+625                           .          43            0.95          43          0.95
+626                           0         4355           96.16         4398        97.11
+627                           1          131            2.89         4529        100.00
+628
+629  ;
+630
+631  ******************************************************************************
+632  hr_drink:
+633  2 = any high-risk drinking [heavy drinking, binge drinking (reported
+634  consuming 5 or more drinks in a sitting)]
+635  1 = no high-risk drinking (does not report heavy drinking and binge drinking)
+636  0 = does not drink alcohol (reports ‘I do not drink alcohol’, ignore if they
+637  provided a non-zero response to the number of drinks in a week)
+638  ******************************************************************************;
+639
+640  data final_recode;
+641  set final_recode;
+642
+643  if heavy_drink=1 | q21>=3 then hr_drink=2;
+644  if heavy_drink=0 & q21=2 then hr_drink=1;
+645  if q21=1 then hr_drink=0;
+646  if heavy_drink=. &  q21=.  then hr_drink=.;
+647  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 136 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+648
+649  proc freq data=final_recode;
+650  table hr_drink/missing;
+651  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+652
+653
+654  *Result:
+655
+656
+657                                                           Cumulative     Cumulative
+658                     hr_drink    Frequency     Percent     Frequency      Percent
+659                      -----------------------------------------------------------
+660                         .          14           0.31         14           0.31
+661                         0         900          19.87         914         20.18
+662                         1         2171         47.94         3085        68.12
+663                         2         1444         31.88         4529        100.00
+664
+665  ;
+666
+667  ***************************************************************
+668  tob_locsum: The number of locations that a participants reported using tobacco
+669  ***************************************************************;
+670
+671  data final_recode;
+672  set final_recode;
+673  tob_locsum = sum(cam_tobac, res_tobac, fra_tobac, bar_tobac,
+674   car_tobac, live_tobac, party_tobac, work_tobac, other_tobac);
+675  run;
+
+NOTE: Missing values were generated as a result of performing an operation on missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      1081 at 673:14
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 137 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+
+
+676
+677  proc freq data=final_recode;
+678   table tob_locsum/missing; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+679
+680
+681   *Result:
+682
+683
+684                                                            Cumulative    Cumulative
+685                     tob_locsum    Frequency     Percent     Frequency      Percent
+686                      -----------------------------------------------------------
+687                          .          1081         23.87       1081          23.87
+688                          0          1789         39.50       2870          63.37
+689                          1          1377         30.40       4247          93.77
+690                          2           266          5.87       4513          99.65
+691                          3            15          0.33       4528          99.98
+692                          4             1          0.02       4529          100.00
+693  ;
+694
+695  ********************************************************************************
+696  dis_alcohol: Identify participants who reported that they ‘do not drink alcohol’, but
+697  then reported consuming alcohol in the past 30 days or reported an
+698  amount of alcohol consumption that is inconsistent
+699   *********************************************************************************;
+700
+701  data final_recode;
+702  set final_recode;
+703  dis_alcohol=0;
+704  if q21=1 & (alcohol~=0 | q20 ~=0) then dis_alcohol=1;
+705  if (q21=. | alcohol=. | q20=.) then dis_alcohol=.;
+706  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 138 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+707
+708  proc freq data=final_recode;
+709  table dis_alcohol/missing;
+710  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+711
+712
+713  *Result:
+714
+715
+716                                                              Cumulative     Cumulative
+717                     dis_alcohol    Frequency     Percent     Frequency      Percent
+718                      -----------------------------------------------------------
+719                          .             39          0.86         39           0.86
+720                          0             3998       88.28        4037         89.14
+721                          1              492       10.86        4529         100.00
+722
+723  ;
+724
+725  *************************************************************************************
+726  dis_tobacco: Identify participants who reported that they ‘do not use tobacco’, but
+727  reported tobacco use in the previous 30 days (do not include marijuana) or
+728  reported a tobacco use location
+729  *************************************************************************************;
+730
+731
+732   data final_recode;
+733   set final_recode;
+734   dis_tobacco=0;
+735   if (no_tobac=1 & smoke_tobac=>1) then dis_tobacco=1;
+736   if (no_tobac=1 & smokeles_tobac=>1) then dis_tobacco=1;
+737   if (no_tobac=1 & tob_locsum=>1) then dis_tobacco=1;
+738  if (no_tobac=. | smoke_tobac=. | smokeles_tobac=. | tob_locsum=.) then dis_tobacco=.;
+739   run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 139 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+740
+741  proc freq data=final_recode;
+742   table dis_tobacco/missing;
+743   run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+744
+745
+746   *Result:
+747
+748
+749                                                             Cumulative     Cumulative
+750                     dis_tobacco    Frequency     Percent    Frequency      Percent
+751                      -----------------------------------------------------------
+752                          .          1096         24.20       1096           24.20
+753                          0          2258         49.86       3354           74.06
+754                          1          1175         25.94       4529          100.00
+755
+756  ;
+757
+758   **********************************************************************************
+759  dis_sexual: Identify participants who reported not ever being sexually active, but
+760  report being sexually active in the past 12 months or being pregnant or
+761  impregnating someone
+762  **************************************************************;
+763
+764  data final_recode;
+765  set final_recode;
+766  dis_sexual=0;
+767  if sex_act=0 & sex_act_12=1 then dis_sexual=1;
+768  if sex_act=0 & preg_pass_12=1 then dis_sexual=1;
+769  if  (sex_act=. | sex_act_12=. | preg_pass_12=.) then dis_sexual=.;
+770  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 140 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+
+
+771
+772  proc freq data=final_recode;
+773  table dis_sexual/missing;
+774  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+775
+776
+777  *Result:
+778
+779
+780                                                             Cumulative     Cumulative
+781                     dis_sexual    Frequency     Percent    Frequency      Percent
+782                      -----------------------------------------------------------
+783                         .           975          21.53        975          21.53
+784                         0           3528         77.90       4503          99.43
+785                         1            26           0.57       4529         100.00
+786  ;
+787
+788
+789
+790
+791
+792  *************************************************************************************
+793  dis_sum: The number of inconsistent responses based on the variables created
+794  that identify participants who might have provided responses that are
+795  not reasonable (HINT: don’t forget about the other flags for discordant
+796  responses from previous quizzes and be sure to use the correct ones)
+797  ************************************************************************************;
+798
+799  data final_recode;
+800  set final_recode;
+801  dis_sum = sum(dis_sexual, dis_alcohol, dis_tobacco, dis_t2d, dis_hbp, dis_hchol);
+802
+803  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 141 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+804
+805  proc freq data=final_recode;
+806  table dis_sum/missing;
+807  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+808
+809
+810  *Result:
+811
+812
+813                                                         Cumulative     Cumulative
+814                     dis_sum    Frequency     Percent    Frequency      Percent
+815                      -----------------------------------------------------------
+816                        0         2822         62.31       2822          62.31
+817                        1         1482         32.72       4304          95.03
+818                        2          215          4.75       4519          99.78
+819                        3           10          0.22       4529         100.00
+820
+821  ;
+822
+823  data final_recode;
+824  set final_recode;
+825  run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set WORK.FINAL_RECODE has 4529 observations and 141 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+826  proc contents data=final_recode varnum; run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+827
+828  data epiquiz.final_recode;
+829  set final_recode; run;
+
+NOTE: There were 4529 observations read from the data set WORK.FINAL_RECODE.
+NOTE: The data set EPIQUIZ.FINAL_RECODE has 4529 observations and 141 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+
+
